@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.signup{
+    height: 100%;
+    width:100%
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('nepal.jpeg');
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
