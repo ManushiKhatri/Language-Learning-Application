@@ -1,6 +1,6 @@
 <html>
 <head>  
-    <title>Login And Registration Form</title>
+    <title>Login-Signup</title>
     <link rel="stylesheet" href="signup.css">
 </head>
 <body> 
@@ -16,13 +16,13 @@
                 <img src="twitter.jpg">
                 <img src="google.jpg">
             </div>
-            <form id="login" class="input-group">  
+            <form id="login" class="input-group" action="/login-signup" method="post">  
                 <input type="text" class="input-field" placeholder="User Id" required>
                 <input type="text" class="input-field" placeholder="Password" required>
                 <input type="checkbox" class="check-box"><span>Remember Password</span>
                 <button type="submit" class="submit-btn">Login</button>
             </form>
-            <form id="register" class="input-group">  
+            <form id="register" class="input-group" action="/login-signup" method="post">  
                 <input type="text" class="input-field" placeholder="User Id" required>
                 <input type="email" class="input-field" placeholder="Email Id" required>
                 <input type="text" class="input-field" placeholder="Password" required>
