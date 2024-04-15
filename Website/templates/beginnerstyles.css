@@ -1,0 +1,77 @@
+/* beginnerstyles.css */
+
+body {
+  background-image: linear-gradient(rgba(133, 25, 25, 0.4),rgba(69, 9, 143, 0.4)), url('nepal3.jpg'); /* lilac background */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.quiz-container {
+  width: 80%;
+  max-width: 800px;
+  background-color: #b8858d;
+  background-image: linear-gradient(rgba(133, 25, 25, 0.4),rgba(69, 9, 143, 0.4));
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.navigation {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.nav-button {
+  background-color: #7183a4; /* pink background */
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px; /* space for navigation button */
+}
+
+th, td {
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #ffffff;
+  color: #333;
+}
+
+.audio-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.word-button {
+  background: #fababa;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.word-button:hover {
+  background-color: #f2f2f2;
+}
+
+/* Additional styling for button states can be included here if needed */

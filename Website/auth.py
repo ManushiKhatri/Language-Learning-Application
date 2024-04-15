@@ -12,7 +12,7 @@ def login_signup():
             user=User.query.filter_by(username=username).first()
             if user and user.check_password(password):
                 flash('Logged in successfully',category='success')
-                return redirect(url_for('main.dashboard')) 
+                return redirect(url_for('dashboard.html')) 
             else:
                 flash('Incorrect username or password',category='error')
         elif form_type=='register':
