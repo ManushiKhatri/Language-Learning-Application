@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Learning Quiz</title>
+  <link rel="stylesheet" href="sintermediatestyles.css">
+</head>
+<body>
+  <div class="navigation">
+    <button class="nav-button" onclick="window.location.href='dashboard.html';">←</button>
+  </div>
+  <div class="quiz-container">
+    <div class="question">
+      <h3><b><u>Translate this sentence:</u></b></h3>
+      <p class="english-question"><b>How are you?</b></p>
+    </div>
+    <div class="options">
+      <button class="option-button"></button><br>
+      <button class="option-button"></button><br>
+      <button class="option-button"></button><br>
+      <button class="option-button"></button><br>
+    </div>
+    <br>
+    <div class="audio-options">
+      <button class="audio-button">🔊</button><b>: English</b> &nbsp
+      <button class="audio-button">🔊</button><b>: Nepali</b>
+    </div>
+  </div>
+  <script>
+    // Define questions and their possible answers, including wrong answers
+    const questions = [
+      { 
+        english: "what school do you go to?",
+        nepali: "तिमी कुन स्कुलमा जान्छौ?",
+        wrong: ["तिम्रो नाम के हो?", "म ठिक छु", "तिमी कहाँ छौ?"]
+      },
+      { 
+        english: "what class are you in?",
+        nepali: "तिमी कुन कक्षामा छौ",
+        wrong: ["तिमीलाई कस्तो छ?", "तिमी कुन स्कुलमा जान्छौ?", "पछि भेटौँला"]
+      },
+      { 
+        english: "I failed the exam",
+        nepali: "परीक्षामा फेल भएँ",
+        wrong: ["तिमीलाई कस्तो छ?", "म ठिक छु", "तिम्रो नाम के हो?"]
+      }
+      // Add more questions with their correct and wrong answers
+    ];
+  
+    let currentQuestionIndex = 0;
+  
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+  
+    function loadNewQuestion() {
+      const currentQuestion = questions[currentQuestionIndex];
+      document.querySelector('.english-question').textContent = currentQuestion.english;
+      
+      // Mix the correct answer with wrong answers
+      let allOptions = [currentQuestion.nepali, ...currentQuestion.wrong];
+      
+      // Shuffle the options
+      allOptions = shuffleArray(allOptions);
+  
+      // Set the text for each option button
+      document.querySelectorAll('.option-button').forEach((button, index) => {
+        button.textContent = allOptions[index];
+        button.style.backgroundColor = ''; // Reset the color
+        button.disabled = false; // Enable the button
+      });
+    }
+  
+    function selectOption(event) {
+      const selectedOption = event.target;
+      const correctAnswer = questions[currentQuestionIndex].nepali;
+  
+      // Compare the selected option with the correct answer
+      if (selectedOption.textContent === correctAnswer) {
+        selectedOption.style.backgroundColor = '#90ee90'; // Light green
+      } else {
+        selectedOption.style.backgroundColor = '#ff6961'; // Darker red
+      }
+  
+      // Disable all buttons after one is clicked
+      document.querySelectorAll('.option-button').forEach(button => {
+        button.disabled = true;
+      });
+  
+      // Wait for a bit before loading the next question
+      if (currentQuestionIndex < questions.length - 1) {
+        setTimeout(() => {
+          currentQuestionIndex++;
+          loadNewQuestion();
+        }, 2000); // 2-second delay
+      } else {
+        // Handle the end of the quiz, e.g., show a message or score
+        document.querySelector('.english-question').textContent = "Quiz Completed!";
+        // Hide the option buttons
+        document.querySelectorAll('.option-button').forEach(button => {
+          button.style.display = 'none';
+        });
+      }
+    }
+  
+    // Initial call to load the first question
+    document.addEventListener('DOMContentLoaded', loadNewQuestion);
+  
+    // Set up the event listeners for the option buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.option-button').forEach(button => {
+        button.addEventListener('click', selectOption);
+      });
+    });
+  </script>
+  
+</body>
+</html>
