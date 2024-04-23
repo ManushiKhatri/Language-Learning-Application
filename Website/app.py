@@ -18,6 +18,10 @@ auth = firebase.auth()
 
 app.secret_key ='daichamaicha'
 
+# index route
+@app.route('/')
+def index():
+    return redirect('/login')
 #login route
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -31,7 +35,7 @@ def login():
         except Exception as e:
             flash('Login failed: ' + str(e), 'error')
             return redirect('/')
-    return render_template('./templates/signup.html')
+    return render_template('signup.html')
 
 #register route
 @app.route('/register', methods=['POST'])
@@ -51,50 +55,54 @@ def register():
 @app.route('/dashboard')
 def dashboard():
     if 'user' in session:
-        return render_template('./templates/dashboard.html')
+        return render_template('dashboard.html')
     else:
         return redirect('/')
 
 # Routes for beginner and intermediate levels for each category
 @app.route('/gbeginner')
 def gbeginner():
-    return render_template('./templates/gbeginner_quiz.html')
+    return render_template('gbeginner_quiz.html')
 
 @app.route('/gintermediate')
 def gintermediate():
-    return render_template('./templates/gintermediate_quiz.html')
+    return render_template('gintermediate_quiz.html')
     
 @app.route('/sbeginner')
 def sbeginner():
-    return render_template('./templates/sbeginner_quiz.html')
+    return render_template('sbeginner_quiz.html')
 
 @app.route('/sintermediate')
 def sintermediate():
-    return render_template('./templates/sintermediate.html')
+    return render_template('sintermediate.html')
 
 @app.route('/tbeginner')
 def tbeginner():
-    return render_template('./templates/tbeginner.html')
+    return render_template('tbeginner.html')
 
 @app.route('/tintermediate')
 def tintermediate():
-    return render_template('./templates/tintermediate.html')
+    return render_template('tintermediate.html')
 
 @app.route('/wbeginner')
 def wbeginner():
-    return render_template('./templates/wbeginner.html')
+    return render_template('wbeginner.html')
 
 @app.route('/wintermediate')
 def wintermediate():
-    return render_template('./templates/wintermediate.html')
+    return render_template('wintermediate.html')
 
 # Logout route
 @app.route('/logout')
 def logout():
     session.pop('user', None)
-    return redirect('./templates/signup.html')
+    return redirect('/')
 
+# Back route
+@app.route('/back')
+def back():
+    return redirect('/dashboard')
 # Main entry point of the Flask application
 if __name__ == '__main__':
-    app.run(port=1111)
+    app.run(port=1111, debug=True)
 
