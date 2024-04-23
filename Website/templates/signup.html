@@ -1,7 +1,7 @@
 <html>
 <head>  
     <title>Login-Signup</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="./static/signup.css">
 </head>
 <body> 
     <div class="backimg">
@@ -11,18 +11,13 @@
                 <button type="button" class="toggle-btn" onclick="login()">Log In</button>
                 <button type="button" class="toggle-btn" onclick="register()">Register</button>
             </div>
-            <div class="socialicons">
-                <img src="facebook.png">
-                <img src="twitter.jpg">
-                <img src="google.jpg">
-            </div>
-            <form id="login" class="input-group" action="/login-signup" method="post">  
+            <form id="login" class="input-group" action="/login" method="post">  
                 <input type="text" class="input-field" placeholder="User Id" required>
                 <input type="text" class="input-field" placeholder="Password" required>
                 <input type="checkbox" class="check-box"><span>Remember Password</span>
                 <button type="submit" class="submit-btn">Login</button>
             </form>
-            <form id="register" class="input-group" action="/login-signup" method="post">  
+            <form id="register" class="input-group" action="/register" method="post">  
                 <input type="text" class="input-field" placeholder="User Id" required>
                 <input type="email" class="input-field" placeholder="Email Id" required>
                 <input type="text" class="input-field" placeholder="Password" required>
