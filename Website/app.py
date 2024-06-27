@@ -17,7 +17,7 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 
 app.secret_key ='daichamaicha'
-
+#keychange
 # index route
 @app.route('/')
 def index():
